@@ -1,0 +1,125 @@
+<html class=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>影视VIP</title>
+	<link rel="shortcut icon" href="https://mj.mailseason.com/assets/favicons/favicon.ico" type="image/x-icon">
+    <!-- Stylesheets -->
+    <link href="https://mj.mailseason.com/assets/vip/css/bootstrap.css" rel="stylesheet">
+    <link href="https://mj.mailseason.com/assets/vip/css/style.css?v=10002" rel="stylesheet">
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="Content-Security-Policy" content="child-src *;">
+    <link href="https://mj.mailseason.com/assets/vip/css/responsive.css" rel="stylesheet">
+<style type="text/css">.fancybox-margin{margin-right:15px;}</style></head>
+
+<body>
+
+<div class="page-wrapper">
+    <!-- Preloader -->
+    <div class="preloader" style="display: none;"></div>
+
+<!--Inner Page Banner-->
+<section class="inner-page-banner" style="padding: 50px 0px;background-image:url(/assets/vip/images/background/bg-page-title.jpg);">
+	<div class="auto-container">
+		<div class="banner-form-box">
+			<div class="default-form">
+					<div class="row clearfix">
+						<div class="form-group col-md-3 col-sm-4 col-xs-12">
+							<select class="custom-select-box" id="api">
+																								<option value="https://jx.playerjy.com/?ads=0&amp;url=" selected="">jy解析</option>
+																																<option value="https://jx.xmflv.com/?url=">虾米</option>
+																																<option value="https://im1907.top/?jx=">纯净/B站</option>
+																																<option value="https://www.yemu.xyz/?url=">夜幕</option>
+																																<option value="https://jx.nnxv.cn/tv.php?url=">七哥</option>
+																																<option value="https://jx.playerjy.com/?url=">playerjy/B站</option>
+																																<option value="https://www.8090g.cn/?url=">8090</option>
+																							</select>
+						</div>
+						<div class="form-group col-md-6 col-sm-4 col-xs-12">
+							<input id="url" type="text" value="" required="" placeholder="这里输入电影网址">
+						</div>
+						<div class="form-group col-md-3 col-sm-4 col-xs-12">
+							<button class="theme-btn btn-style-one" onclick="playurl();">开始解析</button>
+						</div>
+					</div>
+			</div>
+		</div>
+
+	</div>
+</section>
+
+
+<!--Sponsors Section-->
+<section class="sponsors-section" style="padding: 0px 0px 10px;">
+	<div class="auto-container">
+
+	</div>
+</section>
+
+
+
+<!--NewsLetter Section-->
+<section class="newsletter-section with-negative-margin">
+	<div class="auto-container">
+		<div class="outer-box" style="padding:20px;">
+			<!--Heading-->
+			<div class="sec-title centered" style="margin-bottom:0px;">
+				<iframe id="player" allow="fullscreen" referrerpolicy="no-referrer" style="height:635px;width:100%;" src="./影视VIP1_files/saved_resource(1).html"></iframe>
+			</div>
+		</div>
+	</div>
+</section>
+
+</div>
+<!--End pagewrapper-->
+
+<!--Scroll to top-->
+<div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-long-arrow-up"></span></div>
+
+
+<script src="https://mj.mailseason.com/assets/vip/js/jquery.js"></script>
+<script src="https://mj.mailseason.com/assets/vip/js/bootstrap.min.js"></script>
+<script src="https://mj.mailseason.com/assets/vip/js/jquery-ui.js"></script>
+<script src="https://mj.mailseason.com/assets/vip/js/jquery.fancybox.pack.js"></script>
+<script src="https://mj.mailseason.com/assets/vip/js/jquery.fancybox-media.js"></script>
+<script src="https://mj.mailseason.com/assets/vip/js/mixitup.js"></script>
+<script src="https://mj.mailseason.com/assets/vip/js/owl.js"></script>
+<script src="https://mj.mailseason.com/assets/vip/js/wow.js"></script>
+<script src="https://mj.mailseason.com/assets/vip/js/appear.js"></script>
+<script src="https://mj.mailseason.com/assets/vip/js/script.js"></script>
+
+<script type="text/javascript">
+	$('.main-footer').addClass('with-padding-top');
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        var context = "";
+        if (r != null)
+            context = r[2];
+        reg = null;
+        r = null;
+        return context == null || context == "" || context == "undefined" ? "" : context;
+    }
+
+    function playurl() {
+		var api = $('#api').val();
+		var url = $('#url').val();
+		$('#player').removeAttr("srcdoc");
+		$('#player').attr("src",api+url);
+    }
+
+    var vurl =  GetQueryString('url');
+	if(vurl != ""){
+	    $('#url').val(vurl);
+        playurl();
+	}
+</script>
+
+</body><div id="photoShowViewer" class="sb_BingCA photoShow">
+        <div class="photoshow-viewer-shadow"></div>
+        <div class="photoshow-img-wrapper">
+          <img>
+          <div class="photoshow-view-mode-switch-tip">p</div>
+        </div>
+        <i class="photoshow-img-size"></i>
+      </div></html>
