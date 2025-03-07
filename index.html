@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIP电影解析</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>VIP电影解析</h1>
+    </header>
+    
+    <div class="main-content">
+        <div class="input-group">
+            <div class="line-select">
+                <button id="lineBtn">选择线路</button>
+                <div class="line-options"></div>
+            </div>
+            <input type="text" id="videoUrl" placeholder="输入电影网址">
+            <button id="parseBtn">立即解析</button>
+        </div>
+
+        <div class="iframe-container">
+            <iframe id="resultFrame" src="default.html"></iframe>
+        </div>
+    </div>
+    
+    <footer>Made by 依一 with ❤ - 
+        <span onclick="alert('反馈请发送电子邮件到mclvlc7794@gmail.com')" 
+              style="cursor: pointer; text-decoration: underline; color: #fff;">
+            反馈
+        </span>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

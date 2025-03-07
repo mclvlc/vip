@@ -1,0 +1,263 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Microsoft YaHei', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(https://s2.loli.net/2025/02/23/71FG6jSdPWXyEQR.png) center/cover no-repeat;
+    z-index: -1;
+}
+
+header {
+    position: relative;
+    padding: 4rem 2rem;
+    text-align: center;
+    z-index: 2;
+    backdrop-filter: blur(5px);
+}
+
+h1 {
+    color: white;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 2rem;
+    z-index: 1;
+    position: relative;
+}
+
+.iframe-container {
+    position: relative;
+    width: 80%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    background: rgba(0,0,0,0.8);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    opacity: 1; /* 从 0 改为 1 */
+    transition: transform 0.3s ease; /* 移除 opacity 过渡 */
+}
+
+.iframe-container.loading {
+    opacity: 1; /* 保持加载时也不透明 */
+    transform: scale(0.98);
+}
+
+.iframe-container::before {
+    content: "";
+    display: block;
+    padding-top: 56.25%;
+}
+
+#resultFrame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.input-group {
+    display: flex;
+    gap: 1rem;
+    max-width: 1200px;
+    width: 80%;
+    margin: 0 auto 2rem;
+}
+
+.line-select {
+    position: relative;
+    flex: 0 1 200px;
+}
+
+#lineBtn, #parseBtn, input {
+    height: 50px;
+    border: none;
+    border-radius: 25px;
+    padding: 0 1.5rem;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+#lineBtn {
+    background: #4CAF50;
+    color: white;
+    width: 100%;
+    cursor: pointer;
+}
+
+#videoUrl {
+    flex: 1;
+    background: rgba(255,255,255,0.9);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+#parseBtn {
+    background: #2196F3;
+    color: white;
+    padding: 0 2rem;
+    cursor: pointer;
+}
+
+.line-options {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    display: none;
+    z-index: 1;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.line-option {
+    padding: 1rem;
+    cursor: pointer;
+    transition:  0.3s;
+}
+
+.line-option:hover {
+    background: #f5f5f5;
+}
+
+footer {
+    margin-top: auto;
+    text-align: center;
+    padding: 1.5rem;
+    color: rgba(255,255,255,0.8);
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    backdrop-filter: blur(2px);
+}
+
+@media (max-width: 768px) {
+    #videoUrl {
+        background: rgba(255,255,255,0.9) !important; /* 强制保留背景 */
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1) !important; /* 强制保留阴影 */
+        flex: none; /* 禁用flex属性 */
+    }
+    #parseBtn {
+        display: block;
+        flex: none; /* 防止flex布局压缩按钮 */
+    }
+    .line-select {
+        flex: none; /* 禁用PC端的flex设置 */
+    }
+}
+#parseBtn {
+    background: #2196F3;
+    color: white;
+    padding: 0 2rem;
+    cursor: pointer;
+}
+
+.line-options {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    display: none;
+    z-index: 1;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.line-option {
+    padding: 1rem;
+    cursor: pointer;
+    transition:  0.3s;
+}
+
+.line-option:hover {
+    background: #f5f5f5;
+}
+
+footer {
+    margin-top: auto;
+    text-align: center;
+    padding: 1.5rem;
+    color: rgba(255,255,255,0.8);
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    backdrop-filter: blur(2px);
+}
+@media (max-width: 768px) {
+    .input-group {
+        flex-direction: column;
+        gap: 1.5rem;  /* 增加间距 */
+    }
+    
+    /* 统一移动端输入元素样式 */
+    .line-select, 
+    #videoUrl, 
+    #parseBtn {
+        width: 100%;
+        height: 50px;  /* 保持与PC一致的高度 */
+        border-radius: 25px;  /* 保持圆角效果 */
+    }
+    
+    /* 按钮样式增强 */
+    #parseBtn {
+        padding: 0 2rem;  /* 保持PC端的内边距 */
+        font-size: 1.1rem;  /* 适当放大文字 */
+    }
+    
+    /* 优化iframe容器显示 */
+    .iframe-container {
+        width: 100%;  /* 使用全宽显示 */
+        margin: 1.5rem auto;
+    }
+    
+    header {
+        padding: 2rem 1rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+}
